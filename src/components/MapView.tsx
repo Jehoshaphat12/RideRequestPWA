@@ -5,6 +5,7 @@ import {
   useJsApiLoader,
 } from "@react-google-maps/api";
 import { useEffect, useRef, useState } from "react";
+import Loader from "./Loader";
 
 /* ---------------- TYPES ---------------- */
 
@@ -146,9 +147,7 @@ export default function MapView({
 
   if (!isLoaded) {
     return (
-      <div className="flex h-full items-center justify-center text-sm text-gray-500">
-        Loading map…
-      </div>
+      <Loader />
     );
   }
 
