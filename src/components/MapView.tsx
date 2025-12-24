@@ -152,6 +152,16 @@ export default function MapView({
     );
   }
 
+ 
+
+if (!isLoaded) {
+  return (
+    <div className="flex h-full items-center justify-center text-sm text-gray-500">
+      Loading map…
+    </div>
+  );
+}
+
   const center = isValidLocation(pickupLocation)
     ? { lat: pickupLocation.latitude, lng: pickupLocation.longitude }
     : currentLocation
