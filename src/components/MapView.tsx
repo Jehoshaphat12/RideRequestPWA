@@ -163,7 +163,7 @@ export default function MapView({
       mapContainerStyle={containerStyle}
       center={center}
       zoom={14}
-      onLoad={(map) => (mapRef.current = map)}
+      // onLoad={(map) => (mapRef.current = map)}
       options={{
         disableDefaultUI: true,
         zoomControl: true,
