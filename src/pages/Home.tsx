@@ -32,10 +32,15 @@ const Home = () => {
     fare?: number;
   } | null>(null);
 
-  const pickupAutoRef = useRef<google.maps.places.Autocomplete | null>(null);
-  const destinationAutoRef = useRef<google.maps.places.Autocomplete | null>(
+  const pickupAutoRef = useRef<any>(null);
+  const destinationAutoRef = useRef<any>(
     null
   );
+
+  useEffect(() => {
+  if (typeof google === "undefined") return; // Wait for google maps script
+  // Now safe to use google.maps.*
+}, []);
 
   // Get current location
   useEffect(() => {
