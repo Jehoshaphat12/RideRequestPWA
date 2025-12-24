@@ -14,7 +14,7 @@ import {
   Smartphone,
   Mail,
   ArrowRight,
-  Filter,
+  // Filter,
   Star,
   Clock,
   CheckCircle,

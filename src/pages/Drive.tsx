@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DollarSign, Clock, Car, Shield, CheckCircle, Calendar, MapPin, Smartphone } from 'lucide-react';
+import { DollarSign, Shield, CheckCircle,  MapPin } from 'lucide-react';
 
 const Drive = () => {
   const [formData, setFormData] = useState({

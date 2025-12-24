@@ -61,8 +61,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Mail, Lock, Eye, EyeOff, ArrowRight, Smartphone, Facebook, Apple } from "lucide-react";
-import { FaGoogle } from "react-icons/fa";
+import { Mail, Lock, Eye, EyeOff, ArrowRight, Smartphone,  } from "lucide-react";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -133,10 +132,10 @@ const Login = () => {
     }
   };
 
-  const handleSocialLogin = (provider: any) => {
-    console.log(`Login with ${provider}`);
-    // Implement social login logic here
-  };
+  // const handleSocialLogin = (provider: any) => {
+  //   console.log(`Login with ${provider}`);
+  //   // Implement social login logic here
+  // };
 
   return (
     <div className="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">

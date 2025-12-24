@@ -27,7 +27,7 @@
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, User, MapPin, Bell } from "lucide-react";
+import { Menu, X, User, Bell } from "lucide-react";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

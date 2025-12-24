@@ -10,7 +10,6 @@ import {
   CheckCircle,
   ArrowRight,
   Shield,
-  Smartphone 
 } from "lucide-react";
 
 const SignUp = () => {

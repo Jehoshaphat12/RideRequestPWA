@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { 
   User, Mail, Phone, MapPin, CreditCard, Shield, Clock, 
-  Settings, Bell, Lock, HelpCircle, LogOut, Edit, Camera,
+  Settings, Bell, HelpCircle, LogOut, Edit, Camera,
   Star, Car, ShieldCheck, Package
 } from 'lucide-react';
 import { Link } from 'react-router-dom';

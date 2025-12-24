@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Building, Users, CreditCard, BarChart, Shield, CheckCircle, Mail, Phone, Briefcase } from 'lucide-react';
+import { Building, Users, CreditCard, BarChart, Shield, CheckCircle, Mail, Phone } from 'lucide-react';
 
 const Business = () => {
   const [formData, setFormData] = useState({

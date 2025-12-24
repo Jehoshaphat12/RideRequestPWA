@@ -11,7 +11,6 @@ import {
   CheckCircle,
   Car,
   MapPin,
-  CreditCard,
   Star,
   ArrowRight,
   ChevronDown,

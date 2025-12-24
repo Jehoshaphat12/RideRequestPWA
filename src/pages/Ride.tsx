@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { MapPin, Clock, Shield, Car, Users, Star, Navigation, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { MapPin, Clock, Shield, Car, Users, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Ride = () => {
@@ -7,7 +7,7 @@ const Ride = () => {
   const [destination, setDestination] = useState('');
   const [selectedRide, setSelectedRide] = useState('comfort');
   const [isLoading, setIsLoading] = useState(false);
-  const [rideOptions, setRideOptions] = useState<any[]>([
+  const [rideOptions] = useState<any[]>([
     {
       id: 'economy',
       name: 'Economy',

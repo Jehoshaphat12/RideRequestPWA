@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, FileText, Video, Image, Calendar, Award, Newspaper } from 'lucide-react';
+import { Download, FileText, Video, Image, Calendar, Newspaper } from 'lucide-react';
 
 const Press: React.FC = () => {
   const pressReleases = [

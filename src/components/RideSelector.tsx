@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Car, Users, Luggage, Clock } from "lucide-react";
+import { Car, Users, Clock } from "lucide-react";
 
 const RideSelector = () => {
   const [selectedRide, setSelectedRide] = useState("comfort");

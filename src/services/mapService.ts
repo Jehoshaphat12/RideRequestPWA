@@ -100,7 +100,7 @@ export async function getRouteWithFare(
 }
 
 export async function getRoute(origin: Location, destination: Location): Promise<Route> {
-  const modes = ["two_wheeler", "driving"]
+  // const modes = ["two_wheeler", "driving"]
   try {
     const originStr = `${origin.latitude}, ${origin.longitude}`
     const destinationStr = `${destination.latitude}, ${destination.longitude}`
