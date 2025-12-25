@@ -166,7 +166,7 @@ const SignUp = () => {
 
       <div className="flex flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-80px)]">
         {/* Left side - Benefits */}
-        <div className="lg:w-1/2 px-8 lg:px-16 py-12 lg:py-0">
+        <div className="lg:w-1/2 px-8 lg:px-16 pt-6 md:py-12 lg:py-0">
           <div className="max-w-md">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Join <span className="text-purple-600">RideRequest</span> today
@@ -175,7 +175,7 @@ const SignUp = () => {
               Sign up and get your first ride with 20% off. Experience seamless transportation at your fingertips.
             </p>
             
-            <div className="space-y-6">
+            <div className="hidden md:block space-y-6">
               {[
                 {
                   title: "Fast rides, anytime",
@@ -205,7 +205,7 @@ const SignUp = () => {
             </div>
 
             {/* Stats */}
-            <div className="mt-12 grid grid-cols-2 gap-6">
+            <div className="hidden mt-12 md:grid grid-cols-2 gap-6">
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-600">10M+</div>
                 <div className="text-gray-600">Happy Riders</div>

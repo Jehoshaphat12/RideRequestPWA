@@ -16,7 +16,7 @@ export default function RequestRide() {
   const { user } = useAuth();
   const [pickup, setPickup] = useState<LocationPoint | null>(null);
   const [destination] = useState("");
-  const [setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   // const [locationPickerVisible, setLocationPickerVisible] = useState(false);
 
   useEffect(() => {
@@ -107,12 +107,13 @@ export default function RequestRide() {
               </button>
               <button
                 disabled={!pickup || !destination}
+                onClick={() => requestRide()}
                 className={`items-center p-4 border border-gray-200 rounded-xl mt-4 bg-black text-white
                   ${pickup && destination
                   ? "bg-black text-white hover:bg-gray-800"
-                  : "bg-gray-400 text-gray-500 cursor-not-allowed"}`}
+                  : "bg-gray-900 text-gray-500 cursor-not-allowed"}`}
               >
-                Request Ride
+                {loading ? "Requesting..." : "Request Ride"}
               </button>
             </div>
           </div>

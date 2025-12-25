@@ -151,7 +151,7 @@ const Login = () => {
 
       <div className="flex flex-col lg:flex-row items-center justify-center min-h-[calc(100vh-80px)]">
         {/* Left side - Branding */}
-        <div className="lg:w-1/2 px-8 lg:px-16 py-12 lg:py-0">
+        <div className="lg:w-1/2 px-8 lg:px-16 pt-6 md:py-12 lg:py-0">
           <div className="max-w-md">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Welcome back to <span className="text-purple-600">RideRequest</span>
@@ -159,7 +159,7 @@ const Login = () => {
             <p className="text-gray-600 text-lg mb-8">
               Sign in to request rides, manage your trips, and access exclusive member benefits.
             </p>
-            <div className="space-y-4">
+            <div className="hidden md:block space-y-4">
               {[
                 "Real-time ride tracking",
                 "Secure payment options",
@@ -178,9 +178,9 @@ const Login = () => {
         </div>
 
         {/* Right side - Login Form */}
-        <div className="lg:w-1/2 px-4 sm:px-6 lg:px-8 flex justify-center">
-          <div className="w-full max-w-md">
-            <div className="bg-white rounded-2xl shadow-2xl p-8">
+        <div className="lg:w-1/2 sm:px-6 lg:px-8 flex justify-center">
+          <div className="w-full max-w-dvw md:max-w-md">
+            <div className="bg-white w-dvw sm:w-full md:rounded-2xl md:shadow-2xl p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-8">Sign in to your account</h2>
 
               {/* Social Login Options */}
