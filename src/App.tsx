@@ -5,7 +5,6 @@ import Login from "./pages/Login";
 import RequestRide from "./pages/RequestRide";
 import NavBar from "./components/NavBar";
 import SignUp from "./pages/SignUp";
-import Ride from "./pages/Ride";
 import Drive from "./pages/Drive";
 import Business from "./pages/Business";
 import Profile from "./pages/Profile";
@@ -13,18 +12,19 @@ import About from "./pages/About";
 import Press from "./pages/Press";
 import Contact from "./pages/Contact";
 import Help from "./pages/Help";
+import HomeNew from "./pages/HomeOld";
 
 export default function App() {
   return (
     <div className="">
       <NavBar />
-    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/request" element={<RequestRide />} />
-        <Route path="/ride" element={<Ride />} />
+        <Route path="/requestride" element={<RequestRide />} />
+        <Route path="/requestride" element={<RequestRide />} />
         <Route path="/drive" element={<Drive />} />
         <Route path="/business" element={<Business />} />
         <Route path="/profile" element={<Profile />} />
@@ -32,6 +32,7 @@ export default function App() {
         <Route path="/press" element={<Press />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/newhome" element={<HomeNew />} />
       </Routes>
       </div>
     </div>

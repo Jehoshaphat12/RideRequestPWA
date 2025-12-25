@@ -38,9 +38,6 @@ const NavBar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <button className="md:hidden mr-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xl">R</span>
@@ -51,7 +48,7 @@ const NavBar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/ride" className="text-gray-700 hover:text-black font-medium">
+            <Link to="/requestride" className="text-gray-700 hover:text-black font-medium">
               Ride
             </Link>
             <Link to="/drive" className="text-gray-700 hover:text-black font-medium">
@@ -84,6 +81,9 @@ const NavBar = () => {
               <Link to="/signup" className="px-6 py-2 bg-black text-white font-medium rounded-full hover:bg-gray-800 transition">
                 Sign up
               </Link>
+              <button className="md:hidden mr-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@ const NavBar = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t mt-2">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link to="/ride" className="block px-3 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-md">
+              <Link to="/requestride" className="block px-3 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-md">
                 Ride
               </Link>
               <Link to="/drive" className="block px-3 py-2 text-gray-700 hover:text-black hover:bg-gray-50 rounded-md">

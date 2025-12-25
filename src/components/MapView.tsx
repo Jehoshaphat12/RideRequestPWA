@@ -155,7 +155,7 @@ export default function MapView({
 
 if (!isLoaded) {
   return (
-    <div className="flex h-full items-center justify-center text-sm text-gray-500">
+    <div className="flex h-[100dv] w-[100dw] items-center justify-center text-sm text-gray-500">
       Loading map…
     </div>
   );

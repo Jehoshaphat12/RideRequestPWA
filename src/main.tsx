@@ -8,15 +8,13 @@ import { LoadScript } from "@react-google-maps/api";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <AuthProvider>
-  <BrowserRouter>
-  <LoadScript
-      googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string}
-      libraries={["places"]}
-    >
-
-    <App />
-    </LoadScript>
-
-  </BrowserRouter>
+    <BrowserRouter>
+      <LoadScript
+        googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string}
+        libraries={["places"]}
+      >
+        <App />
+      </LoadScript>
+    </BrowserRouter>
   </AuthProvider>
 );
