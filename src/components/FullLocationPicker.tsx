@@ -1,6 +1,6 @@
 // import { useTheme } from "@/contexts/ThemeContext";
 import { X, MapPin, Loader2 } from "lucide-react";
-import{ useState } from "react";
+import { useState } from "react";
 import LocationSearchInputs from "./LocationSearchInputs";
 
 interface Props {
@@ -18,10 +18,12 @@ export default function FullLocationPicker({
   initialPickup,
   initialDestination,
 }: Props) {
-//   const { theme } = useTheme();
+  //   const { theme } = useTheme();
   const [pickup, setPickup] = useState(initialPickup || null);
   const [destination, setDestination] = useState(initialDestination || null);
-  const [activeField, setActiveField] = useState<"pickup" | "destination">("pickup");
+  const [activeField, setActiveField] = useState<"pickup" | "destination">(
+    "pickup"
+  );
   const [loading, setLoading] = useState(false);
   const [predictions, setPredictions] = useState<any[]>([]);
   const [setSelectedPrediction] = useState<any>(null);
@@ -89,15 +91,15 @@ export default function FullLocationPicker({
   if (!visible) return null;
 
   return (
-    <div 
-      className="fixed inset-0 z-50 overflow-hidden"
-    //   style={{ backgroundColor: theme.background }}
+    <div
+      className="fixed inset-0 z-50 overflow-hidden bg-white"
+      //   style={{ backgroundColor: theme.background }}
     >
       <div className="h-full flex flex-col">
         {/* Header */}
-        <div 
-          className="flex items-center justify-between p-4"
-        //   style={{ backgroundColor: theme.card }}
+        <div
+          className="flex items-center justify-between p-4 bg-gray-100"
+          //   style={{ backgroundColor: theme.card }}
         >
           <button
             onClick={onClose}
@@ -105,7 +107,7 @@ export default function FullLocationPicker({
           >
             <X size={24} />
           </button>
-          <h2 
+          <h2
             className="text-lg font-semibold"
             // style={{ color: theme.text }}
           >
@@ -115,18 +117,18 @@ export default function FullLocationPicker({
         </div>
 
         {/* Pickup & Destination Inputs */}
-        <div 
-          className="p-4 space-y-3"
-        //   style={{ backgroundColor: theme.card }}
+        <div
+          className="p-4 space-y-3 bg-gray-50"
+          //   style={{ backgroundColor: theme.card }}
         >
           <button
             onClick={() => setActiveField("pickup")}
-            className="w-full text-left"
+            className="w-full text-left bg-gray-100 border border-gray-300 rounded-lg"
           >
             <LocationSearchInputs
               placeholder="Pickup location"
               iconName="locate-outline"
-            //   iconColor={theme.primary}
+              iconColor={"#000000"}
               value={pickup?.address}
               onLocationSelect={(loc) => {
                 setPickup(loc);
@@ -143,12 +145,12 @@ export default function FullLocationPicker({
 
           <button
             onClick={() => setActiveField("destination")}
-            className="w-full text-left"
+            className="w-full text-left bg-gray-100 border border-gray-300 rounded-lg"
           >
             <LocationSearchInputs
               placeholder="Destination"
               iconName="flag-outline"
-            //   iconColor={theme.primary}
+              iconColor={"#000000"}
               value={destination?.address}
               onLocationSelect={(loc) => {
                 setDestination(loc);
@@ -167,8 +169,8 @@ export default function FullLocationPicker({
         <div className="flex-1 px-4 pt-3">
           {loading ? (
             <div className="h-full flex items-center justify-center">
-              <Loader2 
-                className="h-8 w-8 animate-spin" 
+              <Loader2
+                className="h-8 w-8 animate-spin text-[#7500fc]"
                 // style={{ color: theme.primary }}
               />
             </div>
@@ -178,7 +180,7 @@ export default function FullLocationPicker({
                 <button
                   key={index}
                   className="w-full flex items-center py-3 border-b hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors px-2"
-                //   style={{ borderBottomColor: theme.border }}
+                  //   style={{ borderBottomColor: theme.border }}
                   onClick={() => handlePredictionSelect(item)}
                 >
                   <MapPin
@@ -186,9 +188,7 @@ export default function FullLocationPicker({
                     // style={{ color: theme.primary }}
                     className="mr-3 flex-shrink-0"
                   />
-                  <span 
-                    className="text-gray-900 dark:text-gray-100 flex-1 text-left truncate"
-                  >
+                  <span className="text-gray-900 dark:text-gray-100 flex-1 text-left truncate">
                     {item.description}
                   </span>
                 </button>
@@ -196,7 +196,7 @@ export default function FullLocationPicker({
             </div>
           ) : (
             <div className="h-full flex items-center justify-center">
-              <span 
+              <span
                 className="text-gray-500 dark:text-gray-400"
                 // style={{ color: theme.muted }}
               >
@@ -207,35 +207,35 @@ export default function FullLocationPicker({
         </div>
 
         {/* Footer */}
-        <div 
-          className="flex gap-3 p-4 border-t"
-        //   style={{ 
-        //     backgroundColor: theme.card,
-        //     borderTopColor: theme.border 
-        //   }}
+        <div
+          className="flex gap-3 p-4 border-t bg-gray-100"
+          //   style={{
+          //     backgroundColor: theme.card,
+          //     borderTopColor: theme.border
+          //   }}
         >
           <button
             className="flex-1 py-3 rounded-lg border text-center transition-colors hover:bg-gray-50 dark:hover:bg-gray-800"
-            // style={{ 
+            // style={{
             //   borderColor: theme.border,
-            //   color: theme.text 
+            //   color: theme.text
             // }}
             onClick={onClose}
           >
             Cancel
           </button>
           <button
-            className="flex-1 py-3 rounded-lg text-center transition-opacity hover:opacity-90 disabled:opacity-50"
-            // style={{ 
+            className="flex-1 py-3 rounded-lg text-center transition-opacity hover:opacity-90 disabled:opacity-50 bg-black text-white"
+            // style={{
             //   backgroundColor: theme.primary,
-            //   color: theme.primaryText 
+            //   color: theme.primaryText
             // }}
             onClick={handleConfirm}
             disabled={loading}
           >
             {loading ? (
-              <Loader2 
-                className="h-5 w-5 animate-spin mx-auto" 
+              <Loader2
+                className="h-5 w-5 animate-spin mx-auto"
                 // style={{ color: theme.primaryText }}
               />
             ) : (

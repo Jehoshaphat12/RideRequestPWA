@@ -221,7 +221,7 @@ const SignUp = () => {
         {/* Right side - Sign Up Form */}
         <div className="lg:w-1/2 px-4 sm:px-6 lg:px-8 flex justify-center">
           <div className="w-full max-w-md">
-            <div className="bg-white rounded-2xl shadow-2xl p-8">
+            <div className="bg-white w-dvw sm:w-full md:rounded-2xl p-8">
               {/* Progress Steps */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center">

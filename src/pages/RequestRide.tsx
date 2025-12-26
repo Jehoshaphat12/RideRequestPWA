@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 import MapView from "../components/MapView";
 import { ChevronRight, MapPin, Navigation, Search } from "lucide-react";
 import { Autocomplete } from "@react-google-maps/api";
+import FullLocationPicker from "../components/FullLocationPicker";
 
 type LocationPoint = {
   lat: number;
@@ -15,9 +16,9 @@ type LocationPoint = {
 export default function RequestRide() {
   const { user } = useAuth();
   const [pickup, setPickup] = useState<LocationPoint | null>(null);
-  const [destination] = useState("");
+  const [destination, setDestination] = useState<LocationPoint | null>(null);
   const [loading, setLoading] = useState(false);
-  // const [locationPickerVisible, setLocationPickerVisible] = useState(false);
+  const [locationPickerVisible, setLocationPickerVisible] = useState(false);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -98,13 +99,25 @@ export default function RequestRide() {
                 <Navigation className="inline-block mr-2" size={20} />
                 Where are we headed?
               </h3>
-              <button className="flex justify-between items-center p-4 border border-gray-200 rounded-xl just">
+              <button className="flex justify-between items-center p-4 border border-gray-200 rounded-xl just"
+                onClick={()=> setLocationPickerVisible(true)}
+              >
                 <div className="flex flex-row items-center">
                   <MapPin className="inline-block mr-2" size={16} />
                   <p>Select destination</p>
                 </div>
                 <ChevronRight size={18} />
               </button>
+               <FullLocationPicker
+              visible={locationPickerVisible}
+              onClose={() => setLocationPickerVisible(false)}
+              onConfirm={(pickupLoc, destLoc) => {
+                setPickup(pickupLoc);
+                setDestination(destLoc);
+              }}
+              initialPickup={pickup}
+              initialDestination={destination}
+            />
               <button
                 disabled={!pickup || !destination}
                 onClick={() => requestRide()}

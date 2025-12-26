@@ -15,7 +15,7 @@ interface LocationSearchInputProps {
   autoFillCurrentLocation?: boolean;
 }
 
-const GOOGLE_MAPS_API_KEY = import.meta.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 export default function LocationSearchInputs({
   placeholder,
@@ -163,28 +163,28 @@ export default function LocationSearchInputs({
     }
 
     try {
-      const params = new URLSearchParams({
-        input: text,
-        key: GOOGLE_MAPS_API_KEY || '',
-      });
-
-      if (currentLocation) {
-        const { latitude, longitude } = currentLocation;
-        params.append('location', `${latitude},${longitude}`);
-        params.append('radius', '20000');
-      }
-
-      const apiUrl = `https://maps.googleapis.com/maps/api/place/autocomplete/json?${params}`;
-
-      const res = await fetch(apiUrl);
-      const data = await res.json();
+      // Call your backend proxy endpoint instead of Google directly
+    const response = await fetch(`/api/places/autocomplete?input=${encodeURIComponent(text)}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
       
       if (data?.predictions) {
         setPredictions(data.predictions);
         onPredictionsChange?.(data.predictions);
+        setShowResults(true)
       } else {
         setPredictions([]);
         onPredictionsChange?.([]);
+        setShowResults(false)
       }
     } catch (error) {
       console.error('Prediction fetch error:', error);
@@ -238,7 +238,7 @@ export default function LocationSearchInputs({
   return (
     <div className="relative">
       <div 
-        className="flex items-center rounded-xl px-3 py-2 mb-2"
+        className="flex items-center rounded-xl px-3 py-2 mb-2 bg-gray-100"
         // style={{ backgroundColor: theme.border }}
       >
         <div className="mr-2">
@@ -271,13 +271,13 @@ export default function LocationSearchInputs({
 
       {showDropdown && showResults && predictions.length > 0 && (
         <div 
-          className="absolute top-full left-0 right-0 rounded-lg overflow-hidden z-50 shadow-lg max-h-60 overflow-y-auto"
+          className="absolute top-full left-0 right-0 rounded-lg overflow-hidden z-999 shadow-lg max-h-60 overflow-y-auto bg-gray-100"
         //   style={{ backgroundColor: theme.card }}
         >
           {predictions.map((item) => (
             <button
               key={item.place_id}
-              className="w-full flex items-center px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-b last:border-b-0"
+              className="w-full flex items-center px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors border-gray-100 border-b last:border-b-0"
             //   style={{ borderBottomColor: theme.border }}
               onClick={() => handleSelectLocation(item)}
               type="button"
